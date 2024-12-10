@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/css/brands.css}">
+    <link rel="stylesheet" th:href="@{/css/solid.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>mbrailway</title>
+</head>
+<body>
+<!--header section-->
+<header th:replace="fragments/header :: header">...</header>
+
+<!--main section-->
+<main>
+    <div class="admin pt-5">
+        <h2 class="text-bold">Welcome to the Admin Dashboard</h2>
+
+       <section class="menu">
+           <a th:href="@{/admin}">
+               <div class="one">
+                   <p><span><i class="fa-solid fa-train"></i></i></span>Trains</p>
+                   <h6 th:text="${#lists.size(trains)}"></h6>
+               </div>
+           </a>
+           <a th:href="@{/admin/users}">
+               <div class="one">
+                   <p><span><i class="fa-solid fa-users"></i></span>Users</p>
+                   <h6 th:text="${#lists.size(users)}"></h6>
+               </div>
+           </a>
+           <a th:href="@{/reservations}">
+               <div class="one">
+                   <p><span><i class="fa-solid fa-ticket"></i></span>Reservations</p>
+                   <h6 th:text="${#lists.size(reservations)}"></h6>
+               </div>
+           </a>
+       </section>
+       <section class="reservations mt-3">
+           <h2>Manage Reservations</h2>
+           <a href="/trains/add" class="m-3 btn add">Add New Train</a>
+           <table class="table table-striped table-responsive-sm" th:if="${#lists.size(trains) > 0}">
+               <thead>
+               <tr>
+                   <th>ID</th>
+                   <th>Origin</th>
+                   <th>Destination</th>
+                   <th>Reservation Date</th>
+                   <th>Available Seats</th>
+                   <th>Actions</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr th:each="train : ${trains}">
+                   <td th:text="${train.id}"></td>
+                   <td th:text="${train.origin}"></td>
+                   <td th:text="${train.destination}"></td>
+                   <td th:text="${train.departureDate}"></td>
+                   <td th:text="${train.availableSeats}"></td>
+                   <td>
+                       <a th:href="@{/trains/update/{id}(id=${train.id})}">Edit</a>
+                       <a th:href="@{/trains/delete/{id}(id=${train.id})}">Delete</a>
+                       <a th:href="@{/trains/{id}(id=${train.id})}">View Train</a>
+                   </td>
+               </tr>
+               </tbody>
+           </table>
+           <div class="no-reservation" th:if="${#lists.size(trains) == 0}">
+               <h5>There is no available Train for reservation at the moment</h5>
+               <p>Please add Train</p>
+           </div>
+       </section>
+
+    </div>
+</main>
+
+<!--footer section-->
+<footer th:replace="fragments/footer :: footer">...</footer>
+
+<!--javascript section-->
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/solid.js}"></script>
+<script type="text/javascript" th:src="@{/js/brands.js}"></script>
+<script type="text/javascript" th:src="@{/js/fontawesome.js}"></script>
+</body>
+</html>

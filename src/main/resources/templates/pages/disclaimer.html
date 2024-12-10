@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/css/brands.css}">
+    <link rel="stylesheet" th:href="@{/css/solid.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>mbrailway</title>
+</head>
+<body>
+<!--header section-->
+<header th:replace="fragments/header :: header">...</header>
+
+<!--main section-->
+<main>
+    <div class="legal">
+        <div class="head">
+            <h1 class="text-bold">Disclaimer</h1>
+        </div>
+        <div class="contents container">
+            <h3>Introduction</h3>
+            <p>
+                Welcome to Mbrailway ("we", "us", "our"). This Disclaimer applies to the use of our train reservation
+                website (mbrailway.com). By accessing or using the Website, you agree to be bound by this Disclaimer.
+                If you do not agree with this Disclaimer, please do not use the Website.
+            </p>
+            <h4>General Information</h4>
+            <p>
+                The content provided on the Website is for general informational purposes only. While we strive to ensure
+                that the information is accurate and up-to-date, we make no guarantees regarding the completeness,
+                accuracy, reliability, suitability, or availability of the information, products, services, or
+                related graphics contained on the Website for any purpose. Any reliance you place on such information
+                is strictly at your own risk.
+            </p>
+             <h4>No Professional Advice</h4>
+             <p>
+                 The information on the Website does not constitute professional advice of any kind, including but not
+                 limited to travel, legal, financial, or technical advice. For specific advice tailored to your situation,
+                 please consult a qualified professional.
+             </p>
+            <h4>Limitation of Liability</h4>
+            <p>
+                To the fullest extent permitted by law, Mbrailway disclaims all warranties, express or implied,
+                in connection with the Website and your use thereof. We do not warrant that the Website will be
+                error-free, secure, or free from viruses or other harmful components.
+            </p>
+
+            <p>
+                In no event shall Mbrailway, its affiliates, partners, directors, employees, or agents be
+                liable for any direct, indirect, incidental, special, consequential, or punitive damages, including
+                but not limited to loss of profits, data, use, goodwill, or other intangible losses, resulting from:
+            </p>
+            <ul>
+                <li>Your access to or use of, or inability to access or use, the Website.</li>
+                <li>Any conduct or content of any third party on the Website.</li>
+                <li>Any content obtained from the Website.</li>
+                <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+            </ul>
+            <h4>External Links</h4>
+            <p>
+                The Website may contain links to external websites that are not provided or maintained by or in any way
+                affiliated with Mbrailway. We do not endorse, guarantee, or assume responsibility for the
+                accuracy or reliability of any information offered by third-party websites linked through the Website.
+                Clicking on external links is at your own risk, and we encourage you to review the terms and conditions
+                and privacy policies of any third-party websites you visit.
+            </p>
+            <h4>Changes to This Disclaimer</h4>
+            <p>
+                We reserve the right to modify this Disclaimer at any time. Any changes will be posted on this page,
+                and the "Last Updated" date will be revised accordingly. By continuing to use the Website after any
+                modifications, you agree to be bound by the updated Disclaimer. We encourage you to review this
+                Disclaimer periodically to stay informed about our terms.
+            </p>
+            <h4>Contact Us</h4>
+            <p>If you have any questions about this disclaimer, please contact us via email.</p>
+        </div>
+
+    </div>
+</main>
+<!--header section-->
+<footer th:replace="fragments/footer :: footer">...</footer>
+
+
+<!--javascript section-->
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/solid.js}"></script>
+<script type="text/javascript" th:src="@{/js/brands.js}"></script>
+<script type="text/javascript" th:src="@{/js/fontawesome.js}"></script>
+</body>
+</html>

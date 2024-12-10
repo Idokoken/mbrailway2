@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<footer th:fragment="footer" class="">
+    <div class="content">
+        <div class="item">
+            <div class="footerlogo">
+                <img
+                        th:src="@{/images/logo.png}"
+                        alt="brand"
+                        height="40"
+                        width="40"
+                />
+                <h4 class="ms-2">MBrailway</h4>
+            </div>
+            <p class="desc">E-Ticketing Platform</p>
+            <h5>Follow MBrailway on</h5>
+            <div class="footerIcons">
+                <div class="icon"><i class="fa-brands fa-facebook brand"></i></div>
+                <div class="icon"><i class="fa-brands fa-x-twitter brand"></i></div>
+                <div class="icon"><i class="fa-brands fa-instagram brand"></i></div>
+                <div class="icon"><i class="fa-brands fa-youtube brand"></i></div>
+                <div class="icon"><i class="fa-brands fa-linkedin-in brand"></i></div>
+
+            </div>
+        </div>
+        <div class="item">
+            <h4>Our Company</h4>
+            <div class="footerItem"><a th:href="@{/}">Home</a></div>
+            <div class="footerItem"><a th:href="@{/about}">About Us</a></div>
+            <div class="footerItem"><a th:href="@{/contact}">Contact Us</a></div>
+            <div class="footerItem"><a th:href="@{/terms}">Teams and Conditions</a></div>
+            <div class="footerItem"><a th:href="@{/privacy}">Privacy Policy</a></div>
+        </div>
+        <div class="item">
+            <h4>Resources</h4>
+            <div class="footerItem"><a th:href="@{/faq}">FAQ</a></div>
+            <div class="footerItem"><a th:href="@{/timetable}">Train Timetable</a></div>
+            <div class="footerItem"><a th:href="@{/blog}">Blog</a></div>
+            <div class="footerItem"><a th:href="@{/disclaimer}">Disclaimers</a></div>
+            <div class="footerItem"><a th:href="@{/cookies}">Cookies Policy</a></div>
+        </div>
+
+    </div>
+    <hr class="rule" />
+    <div class="copyWright">
+        <p class="">&copy 2024 MBrailway Inc. All Right Reserved</p>
+    </div>
+</footer>
+</body>
+</html>

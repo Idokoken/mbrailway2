@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="bookings" th:fragment="bookings" >
+        <h4>One way</h4>
+        <form class="details" action="#" th:action="@{/search-result}" method="get">
+            <div class="detail1">
+                <div class="one">
+                    <span>from</span>
+                    <select name="origin" id="origin" placeholder="IDU(ABUJA)">
+                        <option value="idu" selected>IDU(ABUJA)</option>
+                        <option value="kubwa">KUBWA(ABUJA)</option>
+                        <option value="jere">JERE(KADUNA)</option>
+                        <option value="rigasa">RIGASA(KADUNA)</option>
+                    </select>
+                </div>
+                <div class="two">
+                    <span>to</span>
+                    <select name="destination" id="destination" placeholder="KARU(ABUJA)">
+                        <option value="jere" selected>JERE(KADUNA)</option>
+                        <option value="rigasa">RIGASA(KADUNA)</option>
+                        <option value="idu">IDU(ABUJA)</option>
+                        <option value="kubwa">KUBWA(ABUJA)</option>
+                    </select>
+                </div>
+                <span class="repeat"><i class="fa-solid fa-repeat"></i></span>
+            </div>
+            <div class="detail2">
+                <div class="">
+                    <span>Depart</span>
+                    <input type="date" id="filterDate" name="filterDate" placeholder="12, 5 2024">
+                    <span>Saturday</span>
+                </div>
+                <div class="">
+                    <span>Passenger</span>
+                    <input type="number" id="passengers" name="passengers" placeholder="1 GUEST">
+                    <span>Standard</span>
+                </div>
+            </div>
+        </form>
+        <div class="search-container">
+            <button class="search" type="submit">Search Ticket</button>
+        </div>
+    </div>
+</body>
+</html>

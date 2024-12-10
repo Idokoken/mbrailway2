@@ -1,0 +1,159 @@
+.admin{
+   background: #F3F5FF;
+   padding: 20px;
+   min-height: 50vh;
+}
+.admin h2{
+    text-align: center;
+}
+.admin .menu{
+    display: grid;
+    grid-template-columns: 80%;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+.admin .menu div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 20vh;
+    background: #FFFFFF;
+    box-shadow: inset -2px -2px 4px rgba(209, 23, 11, 0.25), inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.admin .menu div p{
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+}
+.admin .menu div span{
+    margin-right: 10px;
+}
+.admin .menu div h6{
+    font-weight: 700;
+    font-size: 24px;
+}
+.admin .reservations table{
+    font-size: 7px;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.admin .reservations .add{
+  background: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+}
+.admin .reservations .no-reservation{
+    margin: 20px auto;
+}
+.admin .reservations .no-reservation h5{
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+}
+.admin .reservations .no-reservation p{
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+ }
+.admin .otherPage{
+
+}
+.admin .otherPage h3{
+   font-weight: 700;
+   text-align: center;
+}
+.admin .otherPage .add{
+   background: var(--primary-color);
+   color: white;
+   border-radius: 10px;
+}
+.admin .otherPage .edit{
+   color: rgba(11, 33, 231, 1);
+   margin-right: 20px;
+}
+.admin .otherPage .delete{
+   color: red;
+}
+.admin .otherPage .back{
+   background-color: rgba(186, 0, 24, 0.1);
+   border: 2px solid rgba(0, 0, 0, 0.1);
+   border-radius: 10px;
+   width: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 10px 15px;
+}
+.admin .otherPage .back span{
+   color: red;
+}
+.admin .otherPage .no-info{
+   margin: 20px auto;
+}
+.admin .otherPage .no-info h5{
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+}
+.admin .otherPage .no-info p{
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+ }
+ .admin .otherPage table{
+     font-size: 10px;
+     width: 100%;
+     table-layout: fixed;
+     border-collapse: collapse;
+ }
+ .admin .otherPage form{
+     width: 60%;
+  }
+  .admin .otherPage form .input-group-append span{
+        background: var(--primary-color);
+        color: white;
+    }
+ .admin .otherPage .step-back{
+    background: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+ }
+ .admin .train button{
+     background: var(--primary-color);
+     color: white;
+     border-radius: 10px;
+  }
+
+
+
+/* for medium and large screen */
+@media only screen and (min-width: 768px){
+/*general styling */
+.admin .menu{
+    grid-template-columns: 30% 30% 30%;
+    justify-content: center;
+}
+.admin .menu div{
+    height: 30vh;
+}
+.admin .reservations table{
+    font-size: 16px;
+}
+.admin .otherPage table{
+    font-size: 16px;
+}
+.admin .otherPage form{
+     width: 40%;
+  }
+ .admin .train form{
+       max-width: 50%;
+       margin-left: auto;
+       margin-right: auto;
+  }
+
+ }

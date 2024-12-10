@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/css/brands.css}">
+    <link rel="stylesheet" th:href="@{/css/solid.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>mbrailway</title>
+</head>
+<body>
+<!--header section-->
+<header th:replace="fragments/header :: header">...</header>
+
+<!--main section-->
+<main>
+    <div class="faq-page">
+        <div class="desc">
+            <h1 class="text-bold">Some of the frequently asked questions from our customers are outlined below</h1>
+        </div>
+       <div class="faqs">
+           <h5>1. What is MBrailway?</h5>
+           <p>MBrailway is an online train reservation platform that allows users to book train tickets easily
+               and securely</p>
+           <h5>2. How do I contact MBrailway customer support?</h5>
+           <p>You can contact us through our website, email - support@mbrailway.com, or phone number - +234703558877.
+           </p>
+           <h5>3. What are the benefits of creating an account on MBrailway?</h5>
+           <p>Creating an account allows you to save your booking history, track your orders, and receive exclusive offers.</p>
+           <h5>4. How can I book a train ticket?</h5>
+           <p>
+               You can book a train ticket by searching for your preferred route, selecting the travel date, and
+               choosing your seat type. Once you've chosen, proceed to payment to confirm your booking.
+           </p>
+           <h5>5. Can I cancel or modify my booking?</h5>
+           <p>Yes, you can cancel or modify your booking by logging into your account and accessing the "My Bookings" section.
+               Please note that cancellation charges may apply depending on how close to the travel date you cancel
+           </p>
+           <h5>6. What payment methods are accepted?</h5>
+           <p>We accept various payment methods, including credit/debit cards, net banking, digital wallets, and UPI</p>
+           <h5>7. How will I receive my ticket after booking?</h5>
+           <p>Once your booking is confirmed, your e-ticket will be sent to your registered email address and mobile number.
+               You can also view and download your ticket by logging into your account.</p>
+           <h5>8. What should I do if I miss my train?</h5>
+           <p>If you miss your train, you will not be eligible for a refund. We recommend reaching the station well in
+               advance of the departure time. In case of emergencies, you can check with our customer service for further
+               assistance.</p>
+           <h5>9. How early should I arrive at the station before my departure?</h5>
+           <p>It’s recommended to arrive at least 30 minutes before your scheduled departure to ensure you have enough
+               time to find your platform and board the train</p>
+           <h5>10. Can I reserve a seat for someone else?</h5>
+           <p>Yes, you can book tickets for other passengers by providing their correct details during the booking process.</p>
+           <h5>11. How do I check my train's schedule and status?</h5>
+           <p>You can check the current schedule and real-time status of your train on the "Train Schedule" or
+               "Track Train" section of our website. Simply enter your train number or route to get live updates.</p>
+           <h5>12. Do you offer discounts for children, seniors, or group bookings?</h5>
+           <p>Yes, we offer discounts for children, senior citizens, and group bookings. Please check the discounts section
+               while booking or contact our customer support for more details.</p>
+           <h5>13. What happens if my train is delayed or canceled?</h5>
+           <p>In case of a delay or cancellation, you will be notified via SMS or email. You may choose to reschedule
+               your trip or apply for a refund based on our cancellation policies</p>
+           <h5>14. How do I contact customer support for more help?</h5>
+           <p>You can contact our customer support team via phone or email. Visit the
+               "Contact Us" page for more information</p>
+       </div>
+    </div>
+</main>
+<!--header section-->
+<footer th:replace="fragments/footer :: footer">...</footer>
+
+
+<!--javascript section-->
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/solid.js}"></script>
+<script type="text/javascript" th:src="@{/js/brands.js}"></script>
+<script type="text/javascript" th:src="@{/js/fontawesome.js}"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.newsletter {
+    padding: 30px;
+    color: white;
+    background: rgba(209, 23, 11, 1);
+  }
+
+  .newsletter h4 {
+    margin: 0;
+    margin-bottom: 30px;
+    color: white;
+  }
+  .newsletter .subscribe{
+    display: flex;
+  }
+  .newsletter input {
+    padding: 8px 5px;
+    padding-left: 15px;
+    width: 150px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+  }
+  .newsletter button {
+    padding: 8px 5px;
+    padding-right: 15px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 0 20px 20px 0;
+  }
+
+
+ /* for medium and large screen */
+ @media only screen and (min-width: 768px){
+    .newsletter input {
+        width: 250px;
+      }
+
+ }

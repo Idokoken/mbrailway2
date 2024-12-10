@@ -1,0 +1,189 @@
+
+.bookings{
+    padding: 30px;
+    margin: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+
+}
+.bookings .details{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 10px;
+}
+.bookings .details .detail1{
+    display: grid;
+    grid-template-columns: 100%;
+    position: relative;
+    justify-content: center;
+    place-items: center;
+    grid-gap: 10px;
+}
+.bookings .details .detail1 div{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    padding: 10px;
+    margin: 0;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.bookings .details .detail1 span.repeat{
+    display: flex;
+    padding: 10px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: white;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.bookings .details .detail1 div select{
+    outline: none;
+    font-weight: 700;
+    margin: 10px 0;
+    border: none;
+    max-width: 100%;
+    color: rgba(0, 0, 0, 0.7);
+}
+.bookings .details .detail1 div select option{
+    margin-bottom: 5px;
+}
+.bookings .details .detail2 {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 20px;
+}
+
+.bookings .details .detail2 div{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0;
+}
+.bookings .details .detail2 div input{
+    outline: none;
+    font-weight: 700;
+    margin: 10px 0;
+    border: none;
+    max-width: 100px;
+}
+.bookings .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.bookings .search{
+    background: var(--primary-color);
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.5), inset 2px 2px 5px rgba(255, 255, 255, 0.5);
+    border-radius: 150px;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+}
+
+/* Checkout Page */
+.bookings .checkout{
+     width: 90vw;
+     border: 2px solid rgba(209, 23, 11, 1);
+     border-radius: 20px;
+     padding: 20px;
+     margin-right: auto;
+     margin-left: auto;
+}
+.bookings .checkout .bookingInfo{
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+.bookings .checkout .content{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.bookings .checkout h4{
+    text-align: center;
+    font-weight: 700;
+}
+.bookings .checkout p{
+    font-size: 14px;
+}
+.bookings .checkout .bookingInfo .note{
+    color: var(--primary-color);
+    font-style: italic;
+}
+.bookings .checkout .content div{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-between;
+}
+.bookings .checkout .content .right{
+   font-weight: 700;
+   text-align: right;
+}
+.bookings .checkout .bottom{
+    background:  rgba(209, 23, 11, 0.8);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    padding: 10px;
+}
+.bookings .checkout .bottom div{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.bookings .checkout .bottom a{
+    background:  rgba(209, 23, 11, 1);
+    text-align: center;
+    font-weight: 700;
+}
+
+/* for medium and large screen */
+@media only screen and (min-width: 768px){
+    .bookings .details{
+        grid-template-columns: 45% 45%;
+        grid-gap: 20px;
+        align-items: start;
+    }
+    .bookings .details .detail1{
+       grid-template-columns: 45% 45%;
+       align-items:center;
+       grid-gap: 0;
+    }
+    .bookings .details .detail1 div select{
+        max-width: 80%;
+    }
+    .bookings .details .detail1 div.one{
+        border: 2px solid rgba(0, 0, 0, 0.7);
+        border-radius: 10px 0 0 10px;
+    }
+    .bookings .details .detail1 div.two{
+        border: 2px solid rgba(0, 0, 0, 0.7);
+        border-radius: 0 10px 10px 0;
+        padding-left: 25px;
+    }
+    .bookings .details .detail1 span.repeat{
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .bookings .details .detail2 {
+        grid-template-columns: 45% 45%;
+    }
+    .bookings .details .detail2 div{
+        margin: 0;
+    }
+
+    /* for checkout page */
+    .bookings .checkout{
+        width: 40vw;
+    }
+ }

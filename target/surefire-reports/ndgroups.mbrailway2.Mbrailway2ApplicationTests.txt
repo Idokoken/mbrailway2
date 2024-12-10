@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ndgroups.mbrailway2.Mbrailway2ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.88 s -- in ndgroups.mbrailway2.Mbrailway2ApplicationTests
