@@ -20,9 +20,10 @@ public class TrainController {
         return "admin/train/addTrain";
     }
     @PostMapping("/add")
-    public String AddTrain(@ModelAttribute("train") Train train) {
+    public String AddTrain(@ModelAttribute("train") Train train, Model model) {
         Train newTrain  =  trainService.saveTrain(train);
-        return "admin/adminDashboard";
+        model.addAttribute("message", "Train successfully created");
+        return "admin/train/addTrain";
     }
 
     @GetMapping
@@ -35,7 +36,7 @@ public class TrainController {
     @GetMapping("/{id}")
     public String getOneTrain(@PathVariable Integer id, Model model) {
         Train train = trainService.getOneTrain(id);
-        model.addAttribute("trains", train);
+        model.addAttribute("train", train);
         return "admin/train/singleTrain";
     }
 
@@ -49,13 +50,13 @@ public class TrainController {
     public String updateTrain(Model model, @PathVariable Integer id, @ModelAttribute("train") Train
             updateTrain)  {
         trainService.updateTrain(id, updateTrain);
-        return "redirect:/admin";
+        return "redirect:/admin?success";
     }
 
-    @PostMapping("/delete/{id}")
+    @RequestMapping("/delete/{id}")
     public String deleteTrain(Model model, @PathVariable Integer id)  {
         trainService.deleteTrain(id);
-        return "redirect:/admin";
+        return "redirect:/admin?delmessage";
     }
 
 }

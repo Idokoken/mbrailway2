@@ -19,40 +19,39 @@
 
 <!--main section-->
 <main>
-    <div class="admin">
-        <div class="container add-reservationPage">
-            <h2>Add Reservation</h2>
-            <form action="#" th:action="@{/test/reservations/add}" th:object="${reservation}" method="post">
-                <div class="mb-3">
-                    <label class="form-label" for="origin">Origin</label>
-                    <input type="text" class="form-control" id="origin" th:field="*{origin}" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="destination">Destination</label>
-                    <input type="text" class="form-control" id="destination" th:field="*{destination}" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="departureDate">Journey Date</label>
-                    <input type="date" class="form-control" id="departureDate" th:field="*{departureDate}" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="departureTime">Departure Time</label>
-                    <input type="time" class="form-control" id="departureTime" th:field="*{departureTime}" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="availableSeats">Available Seats</label>
-                    <input type="number" class="form-control" id="availableSeats" th:field="*{availableSeats}" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="price">Price</label>
-                    <input type="number" class="form-control" id="price" th:field="*{price}" required>
-                </div>
-                <div class="mb-3">
-                    <button type="submit" class="btn">Submit</button>
-                </div>
-
-            </form>
+    <div class="admin container singleTrain">
+        <div class="back">
+            <a href="/admin">
+                <i class="fa fa-arrow-left bg" aria-hidden="true"></i>
+            </a>
         </div>
+
+        <div class="content">
+            <h2>Train Details</h2>
+            <div class="my-4">
+                <h3 class="">TrainCoach: <scan class="mx-3" th:text="${train.trainCoach}"></scan></h3>
+            </div>
+            <div class="my-4">
+                <p>Origin: <scan class="mx-3" th:text="${train.origin}"></scan></p>
+            </div>
+            <div class="my-4">
+                <p>Destination<scan class="mx-3" th:text="${train.destination}"></scan></p>
+            </div>
+            <div class="my-4">
+                <p>departureDate<scan class="mx-3" th:text="${train.departureDate}"></scan></p>
+            </div>
+            <div class="my-4">
+                <p>departureTime<scan class="mx-3" th:text="${train.departureTime}"></scan></p>
+            </div>
+            <div class="my-4">
+                <p>availableSeats<scan class="mx-3" th:text="${train.availableSeats}"></scan></p>
+            </div>
+            <div class="my-4">
+                <p>Price<scan class="mx-3" th:text="${train.price}"></scan></p>
+            </div>
+       </div>
+
+        <div class="close"><a href="/admin" class="btn btn-info">Close</a></div>
     </div>
 
 

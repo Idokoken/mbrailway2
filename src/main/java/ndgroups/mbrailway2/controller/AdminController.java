@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -40,7 +41,7 @@ public class AdminController {
     public String getAllUsers(Model model) {
         List<User> users= userService.getAllUsers();
         model.addAttribute("users", users);
-        return "admin/user/listUser";
+        return "admin/user/listUsers";
     }
 
 

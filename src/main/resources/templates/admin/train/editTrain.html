@@ -21,38 +21,74 @@
 <!--main section-->
 <main>
     <div class="admin">
-        <div class="container add-reservationPage">
-            <h2>Update Reservation</h2>
-            <form action="#" th:action="@{/test/reservations/edit}" th:object="${reservation}" method="post">
+        <div class="container train">
+            <div class="back">
+                <a href="/admin">
+                    <i class="fa fa-arrow-left bg" aria-hidden="true"></i>
+                </a>
+            </div>
+            <h2>Update Train</h2>
+            <form action="#" th:action="@{'/trains/update/' + ${train.trainId}}" th:object="${train}" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="trainCoach">Train Coach</label>
+                    <select class="form-control" id="trainCoach" th:field="*{trainCoach}" name="trainCoach"  required>
+                        <option value="SP0001" selected>SP0001</option>
+                        <option value="SP0002">SP0002</option>
+                        <option value="SP0003">SP0003</option>
+                        <option value="SP0004">SP0004</option>
+                        <option value="SP0005">SP0005</option>
+                    </select>
+                </div>
                 <div class="mb-3">
                     <label class="form-label" for="origin">Origin</label>
-                    <input type="text" class="form-control" id="origin" th:field="*{origin}" required>
+                    <select
+                            class="form-control"
+                            name="origin" id="origin"
+                            th:field="*{origin}"
+                            placeholder="IDU(ABUJA)" required>
+                        <option value="idu" selected>IDU(ABUJA)</option>
+                        <option value="kubwa">KUBWA(ABUJA)</option>
+                        <option value="jere">JERE(KADUNA)</option>
+                        <option value="rigasa">RIGASA(KADUNA)</option>
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="destination">Destination</label>
-                    <input type="text" class="form-control" id="destination" th:field="*{destination}" required>
+                    <label   class="form-label" for="destination">Destination</label>
+                    <select
+                            class="form-control"
+                            name="destination" id="destination"
+                            th:field="*{destination}"
+                            placeholder="KUBWA(ABUJA)" required>
+                        <option value="kubwa">KUBWA(ABUJA)</option>
+                        <option value="idu">IDU(ABUJA)</option>
+                        <option value="jere">JERE(KADUNA)</option>
+                        <option value="rigasa">RIGASA(KADUNA)</option>
+                    </select>
                 </div>
+
                 <div class="mb-3">
                     <label class="form-label" for="departureDate">Journey Date</label>
-                    <input type="date" class="form-control" id="departureDate" th:field="*{departureDate}" required>
+                    <input type="date" class="form-control" name="departureDate" id="departureDate" th:field="*{departureDate}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="departureTime">Departure Time</label>
-                    <input type="time" class="form-control" id="departureTime" th:field="*{departureTime}" required>
+                    <input type="time" class="form-control" name="departureTime" id="departureTime" th:field="*{departureTime}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="availableSeats">Available Seats</label>
-                    <input type="number" class="form-control" id="availableSeats" th:field="*{availableSeats}" required>
+                    <input type="number" class="form-control" name="availableSeats" id="availableSeats" th:field="*{availableSeats}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
-                    <input type="number" class="form-control" id="price" th:field="*{price}" required>
+                    <input type="number" class="form-control" name="price" id="price" th:field="*{price}" required>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn">Update</button>
                 </div>
 
             </form>
+
+            <div class="close"><a href="/admin" class="btn btn-info">Close</a></div>
         </div>
     </div>
 

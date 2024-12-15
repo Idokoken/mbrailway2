@@ -7,9 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
-    <link rel="stylesheet" th:href="@{/css/brands.css}">
-    <link rel="stylesheet" th:href="@{/css/solid.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">>
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>mbrailway</title>
 </head>
@@ -21,41 +19,69 @@
 <main>
     <div class="admin">
         <div class="container train">
+            <div class="back">
+                <a href="/admin">
+                    <i class="fa fa-arrow-left bg" aria-hidden="true"></i>
+                </a>
+            </div>
             <h2>Add Train</h2>
-            <form action="#" th:action="@{/trains/add}" th:object="${train}" method="post">
+
+            <div  th:if="${message}">
+                <p th:text="${message}" class="alert alert-success text-center"></p>
+            </div>
+
+            <form action="#" th:action="@{/trains/add}" method="post">
                 <div class="mb-3">
                     <label class="form-label" for="trainCoach">Train Coach</label>
-                    <input type="text" class="form-control" id="trainCoach" th:field="*{trainCoach}" required>
+                    <select class="form-control" id="trainCoach" name="trainCoach"  required>
+                        <option value="SP0001" selected>SP0001</option>
+                        <option value="SP0002">SP0002</option>
+                        <option value="SP0003">SP0003</option>
+                        <option value="SP0004">SP0004</option>
+                        <option value="SP0005">SP0005</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="origin">Origin</label>
-                    <input type="text" class="form-control" id="origin" th:field="*{origin}" required>
+                    <select class="form-control" name="origin" id="origin" placeholder="IDU(ABUJA)" required>
+                        <option value="idu" selected>IDU(ABUJA)</option>
+                        <option value="kubwa">KUBWA(ABUJA)</option>
+                        <option value="jere">JERE(KADUNA)</option>
+                        <option value="rigasa">RIGASA(KADUNA)</option>
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="destination">Destination</label>
-                    <input type="text" class="form-control" id="destination" th:field="*{destination}" required>
+                    <label   class="form-label" for="destination">Destination</label>
+                    <select class="form-control"  name="destination" id="destination" placeholder="KUBWA(ABUJA)" required>
+                        <option value="kubwa">KUBWA(ABUJA)</option>
+                        <option value="idu">IDU(ABUJA)</option>
+                        <option value="jere">JERE(KADUNA)</option>
+                        <option value="rigasa">RIGASA(KADUNA)</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="departureDate">Journey Date</label>
-                    <input type="date" class="form-control" id="departureDate" th:field="*{departureDate}" required>
+                    <input type="date" class="form-control" id="departureDate" name="departureDate" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="departureTime">Departure Time</label>
-                    <input type="time" class="form-control" id="departureTime" th:field="*{departureTime}" required>
+                    <input type="time" class="form-control" id="departureTime" name="departureTime" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="availableSeats">Available Seats</label>
-                    <input type="number" class="form-control" id="availableSeats" th:field="*{availableSeats}" required>
+                    <input type="number" class="form-control" id="availableSeats" name="availableSeats" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
-                    <input type="number" class="form-control" id="price" th:field="*{price}" required>
+                    <input type="number" class="form-control" id="price" name="price" required>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn">Submit</button>
                 </div>
 
             </form>
+
+            <div class="close"><a href="/admin" class="btn btn-info">Close</a></div>
         </div>
     </div>
 
@@ -69,6 +95,7 @@
 <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/solid.js}"></script>
 <script type="text/javascript" th:src="@{/js/brands.js}"></script>
+<script type="text/javascript" th:src="@{/js/regular.js}"></script>
 <script type="text/javascript" th:src="@{/js/fontawesome.js}"></script>
 </body>
 </html>

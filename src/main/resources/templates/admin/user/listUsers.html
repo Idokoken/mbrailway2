@@ -23,7 +23,7 @@
         <div class="usersPage otherPage">
             <h3 class="m-2">All Users</h3>
             <div class="userInfo">
-                <a href="/test/users/add" class="btn add my-2">Add New User</a>
+                <a href="/users/add" class="btn add my-2">Add New User</a>
                 <table class="table table-striped" th:if="${#lists.size(users) > 0}">
                     <thead>
                     <tr>
@@ -39,10 +39,10 @@
                         <td th:text="${user.username}"></td>
                         <td th:text="${user.role}"></td>
                         <td>
-                            <a class="edit" th:href="@{/test/users/edit/{id}(id=${user.id})}">
+                            <a class="edit" th:href="@{/users/edit/{id}(id=${user.id})}">
                                 <i class="fa-regular fas fa-edit"></i>
                             </a>
-                            <a class="delete" th:href="@{/test/users/delete/{id}(id=${user.id})}">
+                            <a class="delete" th:href="@{/users/delete/{id}(id=${user.id})}">
                                 <i class="fa-solid fa-trash-can"></i>
                             </a>
                         </td>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="back my-4">
-                <a href="/test">Back
+                <a href="/admin">Back
                 <span>
                      <i class="fa-solid fa-home"></i>
                 </span>

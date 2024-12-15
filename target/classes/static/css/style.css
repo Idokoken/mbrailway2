@@ -63,6 +63,7 @@ main a:hover{
 }
 .home .hero h2, .home .hero p{
     margin-left: 20px;
+    font-weight: 700;
 }
 .home .hero h2 span{
     color: rgba(209, 23, 11, 1);

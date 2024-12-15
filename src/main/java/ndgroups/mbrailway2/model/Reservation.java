@@ -9,9 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+
 @ToString
 @Entity
 @Table(name = "reservations")
@@ -31,4 +29,67 @@ public class Reservation {
     @CreationTimestamp
     private LocalDateTime CreatedAt;
 
+    public Reservation(Integer id, Double totalAmount, Integer seatNumber, String bookingConfirmationCode, User user, Train train, LocalDateTime createdAt) {
+        this.id = id;
+        this.totalAmount = totalAmount;
+        this.seatNumber = seatNumber;
+        this.bookingConfirmationCode = bookingConfirmationCode;
+        this.user = user;
+        this.train = train;
+        CreatedAt = createdAt;
+    }
+    public Reservation() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public Integer getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(Integer seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public String getBookingConfirmationCode() {
+        return bookingConfirmationCode;
+    }
+
+    public void setBookingConfirmationCode(String bookingConfirmationCode) {
+        this.bookingConfirmationCode = bookingConfirmationCode;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Train getTrain() {
+        return train;
+    }
+
+    public void setTrain(Train train) {
+        this.train = train;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return CreatedAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        CreatedAt = createdAt;
+    }
 }

@@ -45,33 +45,52 @@
        <section class="reservations mt-3">
            <h2>Manage Reservations</h2>
            <a href="/trains/add" class="m-3 btn add">Add New Train</a>
+
+           <div class="messages">
+               <div th:if="${param.success}">
+                   <div class="alert alert-success">
+                       Updated Successfully
+                   </div>
+               </div>
+               <div th:if="${param.delmessage}">
+                   <div class="alert alert-success">
+                       Successfully Deleted
+                   </div>
+               </div>
+
+           </div>
+
            <table class="table table-striped table-responsive-sm" th:if="${#lists.size(trains) > 0}">
                <thead>
                <tr>
                    <th>ID</th>
+                   <th>Train Coach</th>
                    <th>Origin</th>
                    <th>Destination</th>
-                   <th>Reservation Date</th>
-                   <th>Available Seats</th>
                    <th>Actions</th>
                </tr>
                </thead>
                <tbody>
                <tr th:each="train : ${trains}">
-                   <td th:text="${train.id}"></td>
+                   <td th:text="${train.trainId}"></td>
+                   <td th:text="${train.trainCoach}" ></td>
                    <td th:text="${train.origin}"></td>
                    <td th:text="${train.destination}"></td>
-                   <td th:text="${train.departureDate}"></td>
-                   <td th:text="${train.availableSeats}"></td>
-                   <td>
-                       <a th:href="@{/trains/update/{id}(id=${train.id})}">Edit</a>
-                       <a th:href="@{/trains/delete/{id}(id=${train.id})}">Delete</a>
-                       <a th:href="@{/trains/{id}(id=${train.id})}">View Train</a>
+                   <td class="" colspan="2">
+                       <a class="btn btn-secondary edit" th:href="@{/trains/update/{id}(id=${train.trainId})}">
+                           <i class="fa-solid fa-pen-to-square"></i>
+                       </a>
+                       <a class="btn btn-danger del" th:href="@{/trains/delete/{id}(id=${train.trainId})}">
+                           <i class="fa-solid fa-trash"></i>
+                       </a>
+                       <a class="btn btn-primary view" th:href="@{/trains/{id}(id=${train.trainId})}">
+                           View Train
+                       </a>
                    </td>
                </tr>
                </tbody>
            </table>
-           <div class="no-reservation" th:if="${#lists.size(trains) == 0}">
+           <div class="no-data" th:if="${#lists.size(trains) == 0}">
                <h5>There is no available Train for reservation at the moment</h5>
                <p>Please add Train</p>
            </div>

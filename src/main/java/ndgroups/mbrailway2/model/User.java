@@ -15,8 +15,6 @@ import java.util.List;
 
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -44,6 +42,19 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public User() {
+    }
+
+    public User(Integer id, String email, String username, String password, String role, LocalDateTime createdAt, List<Reservation> reservations) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.createdAt = createdAt;
+        this.reservations = reservations;
     }
 
     public Integer getId() {
