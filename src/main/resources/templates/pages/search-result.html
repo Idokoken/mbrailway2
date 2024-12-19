@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
-    <link rel="stylesheet" th:href="@{/css/brands.css}">
-    <link rel="stylesheet" th:href="@{/css/solid.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>mbrailway</title>
 </head>
@@ -21,78 +19,46 @@
     <div class="result-page">
 
         <section class="" th:replace="fragments/bookings  :: bookings"></section>
-        <section class="found-result">
+        <section class="found-result" th:if="${#lists.size(trains) > 0}">
             <div class="title">
-                <h3>We have 2 travel time(s) from <span>IDU(ABUJA)</span> to <span>RIGASA(KADUNA)</span></h3>
+                <h3 >We have <strong th:text="${#lists.size(trains)}">2</strong>
+                travel time(s) on the selected Date</h3>
             </div>
-            <div class="details">
-                <div class="details1">
-                  <p class="time">2hrs 30mins</p>
-                  <p class="price">price<span>#3,500</span></p>
-                </div>
-                <hr />
-                <div class="details2">
-                    <div class="Depart">
-                        <span>Depart</span>
-                        <h5>09:20</h5>
-                        <P>20 May 2014</P>
-                    </div>
-                    <div class="train-icon"><i class="icon fa fa-train" ></i>
-                    </div>
-                    <div class="Arrive">
-                        <span>Arrive</span>
-                        <h5>12:30</h5>
-                        <P>20 May 2014</P>
-                    </div>
-                </div>
-            </div>
+            <table class="table table-striped table-responsive-sm" th:if="${#lists.size(trains) > 0}">
+                <thead>
+                <tr>
+                    <th>Departure Date</th>
+                    <th>Train Coach</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="train : ${trains}">
+                    <td th:text="${train.departureDate}"></td>
+                    <td th:text="${train.trainCoach}" ></td>
+                    <td th:text="${train.origin}"></td>
+                    <td th:text="${train.destination}"></td>
+                    <td class="" colspan="2">
+                        <a class="btn btn-primary view" th:href="@{/trains/{id}(id=${train.trainId})}">
+                            Book
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
         </section>
-        <section class="not-found-result">
+        <section class="not-found-result" th:if="${#lists.size(trains) == 0}">
             <div class="opps">
-                <i class="fa-solid fa-face-frown"></i>
+                <i class="fa-solid fa-face-frown icon"></i>
             </div>
-            <h3>Oops, No Train available</h3>
-            <h5>Sorry, We do not have any available trip at the specified date</h5>
-            <h5>please choose another date or destination</h5>
+            <h3 class="my-2">Oops, No Train available</h3>
+            <h5 class="my-2">Sorry, We do not have any available trip at the specified date or locations</h5>
+            <h5 class="my-2">please choose another date or destination</h5>
+            <a href="/trains" class="btn btn-primary my-3">View All available Trains</a>
         </section>
-
-
-<!--        <section class="found-result">-->
-<!--            <div class="title">-->
-<!--                <h3>We have 2 travel time(s) from <span>IDU(ABUJA)</span> to <span>RIGASA(KADUNA)</span></h3>-->
-<!--            </div>-->
-<!--            <div class="details">-->
-<!--                <div class="details1">-->
-<!--                    <p class="time">2hrs 30mins</p>-->
-<!--                    <p class="price">price<span>#3,500</span></p>-->
-<!--                </div>-->
-<!--                <hr />-->
-<!--                <div class="details2">-->
-<!--                    <div class="Depart">-->
-<!--                        <span>Depart</span>-->
-<!--                        <h5>09:20</h5>-->
-<!--                        <P>20 May 2014</P>-->
-<!--                    </div>-->
-<!--                    <div class="train-icon"><i class="icon fa fa-train" ></i>-->
-<!--                    </div>-->
-<!--                    <div class="Arrive">-->
-<!--                        <span>Arrive</span>-->
-<!--                        <h5>12:30</h5>-->
-<!--                        <P>20 May 2014</P>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--        </section>-->
-<!--        <section class="not-found-result" th:if="${reservations.isEmpty()}">-->
-<!--            <div class="opps">-->
-<!--                <i class="fa fa-frown-o"></i>-->
-<!--            </div>-->
-<!--            <h3>Oops, No Train available</h3>-->
-<!--            <h5>Sorry, We do not have any available trip at the specified date</h5>-->
-<!--            <h5>please choose another date or destination</h5>-->
-<!--        </section>-->
     </div>
 </main>
 <!--header section-->
@@ -103,6 +69,7 @@
 <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/solid.js}"></script>
 <script type="text/javascript" th:src="@{/js/brands.js}"></script>
+<script type="text/javascript" th:src="@{/js/regular.js}"></script>
 <script type="text/javascript" th:src="@{/js/fontawesome.js}"></script>
 </body>
 </html>

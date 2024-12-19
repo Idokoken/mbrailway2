@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -30,7 +31,7 @@ public class TrainController {
     public String getAllTrain(Model model) {
         List<Train> trains = trainService.getAllTrains();
         model.addAttribute("trains", trains);
-        return "redirect:/admin";
+        return "admin/train/trainList";
     }
 
     @GetMapping("/{id}")
@@ -58,5 +59,15 @@ public class TrainController {
         trainService.deleteTrain(id);
         return "redirect:/admin?delmessage";
     }
+
+    @GetMapping("/search")
+    public String searchTrain(@RequestParam String origin, @RequestParam String destination,
+                              @RequestParam LocalDate departureDate, Model model) {
+        List<Train>trains =  trainService.findAvailableTrainsByOriginAndDestinationAndDepartureDate(origin, destination,
+                departureDate);
+        model.addAttribute("trains", trains);
+        return "pages/search-result";
+    }
+
 
 }

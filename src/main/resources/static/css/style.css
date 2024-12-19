@@ -36,8 +36,7 @@ main a:hover{
    opacity: 0.5;
    font-weight: 700;
 }
-
-.home .hero .welcome{
+home .hero .welcome{
     padding-top: 20px;
 }
 .home .hero p{
@@ -49,7 +48,7 @@ main a:hover{
     margin: 0;
     color: white;
     position: relative;
-    z-index: -2;
+    z-index: 1;
     background-image: url("/images/main-hero1.png");
     background-size: cover;
 }
@@ -59,7 +58,7 @@ main a:hover{
     height: 100%;
     /** background-color: rgba(209, 23, 11, 0.5); **/
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: -1;
+    z-index: 0;
 }
 .home .hero h2, .home .hero p{
     margin-left: 20px;
@@ -73,6 +72,14 @@ main a:hover{
      justify-content: center;
      align-items: center;
      flex-direction: column;
+     padding-top: 30px;
+     z-index: 2;
+     position: relative;
+}
+.home .hero .welcome a{
+    z-index: 10;
+    position: relative;
+
 }
 .home .message{
     display: grid;
@@ -426,6 +433,18 @@ main a:hover{
 .faq-page .faqs h5{
     font-size: 22px;
     font-weight: 600;
+}
+.result-page .not-found-result a{
+    color: white !important;
+}
+.result-page .not-found-result .opps{
+    color: var(--primary-color);
+     width: 100px;
+     height; 100px;
+}
+.result-page .not-found-result .icon, .result-page .not-found-result .icon path{
+    width: 100%;
+    height; 100%;
 }
 
 

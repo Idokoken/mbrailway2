@@ -1,7 +1,9 @@
 #  MBrailway Website
 
 ## Usage
-This is a reservation and ticketing system website/application where users can book, cancel, and view tickets.
+This is a reservation and ticketing system 
+website/application where users can book, and view 
+tickets and admin can manage bookings.
 
 ## Description
 
@@ -15,4 +17,4 @@ The website was developed using fullstack Java technology, Spring Boot and some 
 3. some external dependencies like Spring Web, Thymeleaf, Spring Security, Spring Data Jpa, Lombok etc
 
 
-<!-- The hosted(live) website can be viewed on **[https://mbrailway.com](https://mbrailway.com)**. -->
+The hosted(live) website can be viewed on **[https://mbrailway.onrender.com](https://mbrailway.onrender.com)**

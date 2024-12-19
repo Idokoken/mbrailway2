@@ -5,8 +5,10 @@ import ndgroups.mbrailway2.model.Train;
 import ndgroups.mbrailway2.repository.TrainRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -26,6 +28,7 @@ public class TrainService {
                 orElseThrow(() -> new EntityNotFoundException("Train not found with id: " + id));
     }
 
+
     public Train updateTrain(Integer id, Train train) {
         Train existingTrain  = trainRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("train not found"));
@@ -41,5 +44,11 @@ public class TrainService {
             throw new EntityNotFoundException("Train not found with id: " + id);
         }
         trainRepository.deleteById(id);
+    }
+
+    public List<Train> findAvailableTrainsByOriginAndDestinationAndDepartureDate(String origin,String destination,
+                                                                                 LocalDate departureDate){
+        return trainRepository.findAvailableTrainsByOriginAndDestinationAndDepartureDate(origin, destination,
+                departureDate);
     }
 }

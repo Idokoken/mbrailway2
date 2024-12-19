@@ -28,15 +28,13 @@ public class Train {
     private LocalTime departureTime;
     private Integer availableSeats;
     private Double price;
-    @CreationTimestamp
-    private LocalDateTime reservationTime;
     @OneToMany(mappedBy = "train", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Reservation> reservations = new ArrayList<>();
 
 
     public Train(Integer trainId, String trainCoach, String origin, String destination, LocalDate departureDate,
                  LocalTime departureTime, Integer availableSeats, Double price,
-                 LocalDateTime reservationTime, List<Reservation> reservations) {
+                 List<Reservation> reservations) {
         this.trainId = trainId;
         this.trainCoach = trainCoach;
         this.origin = origin;
@@ -45,7 +43,6 @@ public class Train {
         this.departureTime = departureTime;
         this.availableSeats = availableSeats;
         this.price = price;
-        this.reservationTime = reservationTime;
         this.reservations = reservations;
     }
     public Train() {
@@ -109,14 +106,6 @@ public class Train {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public LocalDateTime getReservationTime() {
-        return reservationTime;
-    }
-
-    public void setReservationTime(LocalDateTime reservationTime) {
-        this.reservationTime = reservationTime;
     }
 
     public List<Reservation> getReservations() {
