@@ -8,10 +8,8 @@
     <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
-    <link rel="stylesheet" th:href="@{/css/brands.css}">
-    <link rel="stylesheet" th:href="@{/css/solid.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <title>Payment Cancelled</title>
+    <title>mbrailway</title>
 </head>
 <body>
 <!--header section-->
@@ -19,57 +17,68 @@
 
 <!--main section-->
 <main>
-    <div class="bookings checkout-section">
-        <div class="checkout">
-            <h4>Your Booking</h4>
-            <p>please complete your booking within 30 minutes</p>
-            <div class="bookingInfo">
-                <div class="content">
-                    <div class="">
-                        <span class="left">Class</span>
-                        <span class="right">Standard</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Coach</span>
-                        <span class="right">3</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Seat Number</span>
-                        <span class="right">4</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Departure Station</span>
-                        <span class="right">Agbor</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Arrival Station</span>
-                        <span class="right">Itakpe</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Departure Time</span>
-                        <span class="right">09:00 am</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Arrival Time</span>
-                        <span class="right">1:00 pm</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Trip Session</span>
-                        <span class="right">morning</span>
-                    </div>
-                    <div class="">
-                        <span class="left">Email</span>
-                        <span class="right">sirnduka@gmail.com</span>
-                    </div>
+    <div class="checkout-section container my-4">
+        <form th:action="@{/reservations/{trainId}/{userId}(trainId=${train.trainId, userId=${user.userId})}"
+        method="post">
+            <div class="userInfo">
+                <h4>Costumer Info</h4>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required />
                 </div>
-                <p class="note">Kindly note that MBrailway does not offer refund after payment</p>
-                <div class="bottom">
-                    <p>1 seat(Adult) = #6000</p>
-                    <p>Total = <strong>#6,000.00</strong></p>
-                    <div class=""><a class="btn" th:href="@{/paypal/pay}">Pay Now</a></div>
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="phone" id="phoneNumber" name="phoneNumber" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="seatNumber" class="form-label">Seat Number</label>
+                    <input type="number" id="seatNumber" name="seatNumber" class="form-control" required />
+                </div>
+
+            </div>
+            <div class="checkout">
+                <h4>Your Booking</h4>
+                <p>please complete your booking within 30 minutes</p>
+                <div class="bookingInfo">
+                    <div class="content">
+                        <div class="">
+                            <span class="left">Class</span>
+                            <span class="right">Standard</span>
+                        </div>
+                        <div class="">
+                            <span class="left">Coach</span>
+                            <span class="right" th:text="${train.trainCoach}">3</span>
+                        </div>
+                        <div class="">
+                            <span class="left">Departure Station</span>
+                            <span class="right" th:text="${train.origin}">Agbor</span>
+                        </div>
+                        <div class="">
+                            <span class="left">Arrival Station</span>
+                            <span class="right" th:text="${train.destination}">Itakpe</span>
+                        </div>
+                        <div class="">
+                            <span class="left">Departure Date</span>
+                            <span class="right" th:text="${train.departureDate}"></span>
+                        </div>
+                        <div class="">
+                            <span class="left">Departure Time</span>
+                            <span class="right" th:text="${train.departureTime}">1:00 pm</span>
+                        </div>
+                        <div class="">
+                            <span class="left">Email</span>
+                            <span class="right">sirnduka@gmail.com</span>
+                        </div>
+                    </div>
+                    <p class="note">Kindly note that MBrailway does not offer refund after payment</p>
+                    <div class="bottom">
+                        <p>1 seat(Adult) = <span th:text="${train.price}">price</span></p>
+                        <p >Total = <strong th:text="${train.price}">#6,000.00</strong></p>
+                        <div class=""><a class="btn btn-success" th:href="@{/stripe/pay}">Pay Now</a></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </main>
 <!--header section-->

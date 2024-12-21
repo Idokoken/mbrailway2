@@ -39,8 +39,9 @@
                     <td th:text="${train.origin}"></td>
                     <td th:text="${train.destination}"></td>
                     <td class="" colspan="2">
-                        <a class="btn btn-primary view" th:href="@{/trains/{id}(id=${train.trainId})}">
-                            Book
+                        <a class="btn btn-primary view"
+                           th:href="@{/reservations/{trainId}(trainId=${train.trainId})}">
+                            Book Now
                         </a>
                     </td>
                 </tr>

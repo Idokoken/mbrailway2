@@ -26,28 +26,28 @@ public class ReservationService {
 
 
 
-//    public Reservation createReservation(Integer trainId, Integer userId, Reservation reservationRequest) {
-//        Reservation reservation = new Reservation();
-//        try {
-//            User user = userRepository.findById(userId).orElseThrow(() -> new OurException("user not found"));
-//            Train train = trainRepository.findById(trainId).orElseThrow(() -> new OurException("user not found"));
-//
-//            //            List<Reservation>existingReservations = train.getReservations();
-//
-////            if(!roomIsAvailable(bookingRequest, existingBookings)){
-////                throw new OurException("Room not available for selected date range");
-////            }
-//            reservationRequest.setTrain(train);
-//            reservationRequest.setUser(user);
-//            String bookingConfirmationCode = Utils.generateRandomConfirmationCode(10);
-//            reservationRequest.setBookingConfirmationCode(bookingConfirmationCode);
-//            reservation = reservationRepository.save(reservationRequest);
-//
-//        }catch (Exception e){
-//            throw new IllegalArgumentException("Error saving the booking " + e.getMessage());
-//        }
-//        return reservation;
-//    }
+    public Reservation createReservation(Integer trainId, Integer userId, Reservation reservationRequest) {
+        Reservation reservation = new Reservation();
+        try {
+            User user = userRepository.findById(userId).orElseThrow(() -> new OurException("user not found"));
+            Train train = trainRepository.findById(trainId).orElseThrow(() -> new OurException("user not found"));
+
+            //            List<Reservation>existingReservations = train.getReservations();
+
+//            if(!roomIsAvailable(bookingRequest, existingBookings)){
+//                throw new OurException("Room not available for selected date range");
+//            }
+            reservationRequest.setTrain(train);
+            reservationRequest.setUser(user);
+            String bookingConfirmationCode = Utils.generateRandomConfirmationCode(10);
+            reservationRequest.setBookingConfirmationCode(bookingConfirmationCode);
+            reservation = reservationRepository.save(reservationRequest);
+
+        }catch (Exception e){
+            throw new IllegalArgumentException("Error saving the booking " + e.getMessage());
+        }
+        return reservation;
+    }
 
     public List<Reservation> getAllReservations() {
         return reservationRepository.findAll();

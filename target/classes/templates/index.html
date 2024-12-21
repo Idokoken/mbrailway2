@@ -26,9 +26,12 @@
                 </h2>
                 <p th:if="${username != null and username != 'anonymousUser'}">
                     Hello,
-                    <span th:text="${username}"></span></p>
+                    <span th:text="${username}"></span>
+<!--                <p th:text="${#authentication.principal.id}">User's id</p>-->
+                </p>
+
                 <p>Book your trip in minutes</p>
-                <a href="/trains" class="btn btn-primary">Check All available Trains</a>
+                <a href="/trains" class="btn btn-primary my-3">Check All available Trains</a>
             </div>
         </section>
         <!--    booking section-->
