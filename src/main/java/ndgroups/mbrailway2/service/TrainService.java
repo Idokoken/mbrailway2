@@ -5,7 +5,6 @@ import ndgroups.mbrailway2.model.Train;
 import ndgroups.mbrailway2.repository.TrainRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -27,15 +26,12 @@ public class TrainService {
         return trainRepository.findById(id).
                 orElseThrow(() -> new EntityNotFoundException("Train not found with id: " + id));
     }
-
-
     public Train updateTrain(Integer id, Train train) {
         Train existingTrain  = trainRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("train not found"));
 
         // Copy updated fields to existing product (excluding id)
         BeanUtils.copyProperties(train,existingTrain, "id");
-
         return trainRepository.save(existingTrain);
     }
 
@@ -50,5 +46,9 @@ public class TrainService {
                                                                                  LocalDate departureDate){
         return trainRepository.findAvailableTrainsByOriginAndDestinationAndDepartureDate(origin, destination,
                 departureDate);
+    }
+
+    public List<Train> findAvailableTrains(){
+        return trainRepository.findAvailableTrains();
     }
 }

@@ -1,7 +1,7 @@
 package ndgroups.mbrailway2.controller;
 
 import ndgroups.mbrailway2.model.User;
-import ndgroups.mbrailway2.service.UserService;
+import ndgroups.mbrailway2.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

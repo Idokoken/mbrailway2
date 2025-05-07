@@ -51,7 +51,7 @@
     </div>
     <hr class="rule" />
     <div class="copyWright">
-        <p class="">&copy 2024 MBrailway Inc. All Right Reserved</p>
+        <p class="">&copy <span th:text="${#dates.year(#dates.createNow())}"></span> MBrailway Inc. All Right Reserved</p>
     </div>
 </footer>
 </body>

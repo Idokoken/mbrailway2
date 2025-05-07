@@ -17,14 +17,16 @@
 
     <div class="logon-container">
         <div class="logo">
-            <img src="/images/logo.png" alt="brand">
+            <a th:href="@{/}">
+              <img src="/images/logo.png" alt="brand">
+            </a>
         </div>
         <div class='top-section'>
             <h2 class='mt-3 text-center'>Sign In</h2>
         </div>
         <div class="messages">
             <div th:if="${param.success}">
-                <div class="alert alert-success">Registration successful, login</div>
+                <div class="alert alert-success">please confirm your email to complete your registration</div>
             </div>
             <div th:if="${param.error}">
                 <div class="alert alert-danger">Invalid username or Password</div>

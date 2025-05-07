@@ -4,15 +4,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@AllArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -32,30 +30,32 @@ public class User {
 //    @Enumerated(EnumType.STRING)
 //    @Column(nullable = false)
     private String role;
+    private boolean isEnabled = false;
     @CreationTimestamp
     private LocalDateTime createdAt;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<Reservation> reservations = new ArrayList<>();
 
-    public User(String username, String email, String password, String role) {
+    public User(String username, String email, String password, String role, boolean isEnabled) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.isEnabled  = isEnabled;
     }
 
     public User() {
     }
 
-    public User(Integer id, String email, String username, String password, String role, LocalDateTime createdAt, List<Reservation> reservations) {
-        this.id = id;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.createdAt = createdAt;
-        this.reservations = reservations;
-    }
+//    public User(Integer id, String email, String username, String password, String role, LocalDateTime createdAt, List<Reservation> reservations) {
+//        this.id = id;
+//        this.email = email;
+//        this.username = username;
+//        this.password = password;
+//        this.role = role;
+//        this.createdAt = createdAt;
+//        this.reservations = reservations;
+//    }
 
     public Integer getId() {
         return id;
@@ -65,13 +65,17 @@ public class User {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getEmail() {
         return email;
     }
 
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getPassword() {
         return password;
@@ -87,6 +91,14 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 
     @Override

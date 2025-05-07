@@ -11,16 +11,19 @@ import java.util.List;
 
 @Repository
 public interface TrainRepository extends JpaRepository<Train, Integer> {
-//    @Query("SELECT t FROM Train t WHERE t.origin = :origin AND t.destination = :destination AND " +
-//            "t.departureDate = :departureDate")
-   @Query("SELECT t FROM Train t WHERE " +
-           "t.departureDate = :departureDate AND " +
+
+    @Query("SELECT t FROM Train t WHERE " +
+                    "t.departureDate = :departureDate AND " +
+                    "t.departureDate >= CURRENT_DATE AND " +
            "(t.origin = :origin OR :origin IS NULL OR :origin = '' OR t.origin IS NOT NULL) AND " +
            "(t.destination = :destination OR :destination IS NULL OR :destination = '' OR t.destination IS NOT NULL)")
-
    List<Train> findAvailableTrainsByOriginAndDestinationAndDepartureDate(
             @Param("origin") String origin,
             @Param("destination") String destination,
             @Param("departureDate") LocalDate departureDate
     );
+
+    @Query("SELECT e FROM Train e WHERE e.departureDate >= CURRENT_DATE")
+    List<Train> findAvailableTrains();
+
 }
